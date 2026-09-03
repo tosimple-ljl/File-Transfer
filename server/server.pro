@@ -1,0 +1,30 @@
+#-------------------------------------------------
+# 服务端子项目
+#-------------------------------------------------
+QT       += core gui network
+
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+
+TEMPLATE = app
+CONFIG   += c++17
+
+TARGET   = FileTransferServer
+
+# 引入公共源码（协议、收发器、设置对话框）
+include(../common/common.pri)
+
+SOURCES += \
+    main.cpp \
+    mainwindow.cpp
+
+HEADERS += \
+    mainwindow.h
+
+FORMS += \
+    mainwindow.ui
+
+# 资源（图标/QSS）统一放 common 下，qrc 以 common 为工作目录
+RESOURCES += \
+    ../common/resources.qrc
+
+DESTDIR = ../bin

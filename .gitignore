@@ -1,0 +1,16 @@
+# 编译中间产物
+*.o
+*.obj
+moc_*.cpp
+qrc_*.cpp
+ui_*.h
+Makefile
+*.pro.user
+.qmake.stash
+
+# 编译输出
+bin/
+
+# IDE
+*.autosave
+.vscode/

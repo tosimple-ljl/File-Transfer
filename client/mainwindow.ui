@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect><x>0</x><y>0</y><width>720</width><height>520</height></rect>
+  </property>
+  <property name="windowTitle">
+   <string>文件传输工具 - 客户端</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="mainLayout">
+    <!-- 顶部工具条：连接 / 断开 / 设置 -->
+    <item>
+     <layout class="QHBoxLayout" name="toolbarLayout">
+      <item>
+       <widget class="QPushButton" name="btnConnect">
+        <property name="text"><string>连接服务器</string></property>
+        <property name="icon">
+         <iconset resource="resources.qrc"><normaloff>:/icons/connect.png</normaloff>:/icons/connect.png</iconset>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnDisconnect">
+        <property name="text"><string>断开</string></property>
+        <property name="icon">
+         <iconset resource="resources.qrc"><normaloff>:/icons/disconnect.png</normaloff>:/icons/disconnect.png</iconset>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnSettings">
+        <property name="text"><string>连接设置</string></property>
+        <property name="icon">
+         <iconset resource="resources.qrc"><normaloff>:/icons/settings.png</normaloff>:/icons/settings.png</iconset>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="toolbarSpacer">
+        <property name="orientation"><enum>Qt::Horizontal</enum></property>
+        <property name="sizeHint" stdset="0">
+         <size><width>40</width><height>20</height></size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QLabel" name="stateLabel">
+        <property name="text"><string>未连接</string></property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+
+    <!-- 中部左右分栏：发送操作 | 传输日志 -->
+    <item>
+     <layout class="QHBoxLayout" name="bodyLayout">
+      <item>
+       <widget class="QGroupBox" name="sendGroup">
+        <property name="title"><string>发送文件</string></property>
+        <property name="minimumSize">
+         <size><width>280</width><height>0</height></size>
+        </property>
+        <layout class="QVBoxLayout" name="sendLayout">
+         <item>
+          <widget class="QPushButton" name="btnOpenFile">
+           <property name="text"><string>选择文件发送</string></property>
+           <property name="icon">
+            <iconset resource="resources.qrc"><normaloff>:/icons/open.png</normaloff>:/icons/open.png</iconset>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="dropArea">
+           <property name="minimumSize">
+            <size><width>0</width><height>140</height></size>
+           </property>
+           <property name="text"><string>拖拽文件到此处发送</string></property>
+           <property name="alignment"><set>Qt::AlignCenter</set></property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QProgressBar" name="sendProgress">
+           <property name="value"><number>0</number></property>
+           <property name="format"><string>发送 %p% (%v / %m 字节)</string></property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="sendSpacer">
+           <property name="orientation"><enum>Qt::Vertical</enum></property>
+           <property name="sizeHint" stdset="0">
+            <size><width>20</width><height>40</height></size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QGroupBox" name="logGroup">
+        <property name="title"><string>传输日志</string></property>
+        <layout class="QVBoxLayout" name="logLayout">
+         <item>
+          <widget class="QPlainTextEdit" name="logEdit">
+           <property name="readOnly"><bool>true</bool></property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QProgressBar" name="recvProgress">
+           <property name="value"><number>0</number></property>
+           <property name="format"><string>接收 %p% (%v / %m 字节)</string></property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionSettings">
+   <property name="text"><string>连接设置…</string></property>
+  </action>
+  <action name="actionQuit">
+   <property name="text"><string>退出</string></property>
+  </action>
+  <action name="actionAbout">
+   <property name="text"><string>关于</string></property>
+  </action>
+ </widget>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
+ <connections/>
+</ui>

@@ -1,0 +1,104 @@
+/* ============================================================
+   全局 QSS 样式表 —— 文件传输工具（客户端/服务端共用）
+   覆盖：按钮、进度条、日志区、拖拽接收区、分组框等
+   ============================================================ */
+
+/* ---------- 全局 ---------- */
+QMainWindow, QDialog {
+    background: #f4f6fa;
+}
+QGroupBox {
+    font-weight: bold;
+    border: 1px solid #d7dde8;
+    border-radius: 8px;
+    margin-top: 12px;
+    padding-top: 6px;
+    background: #ffffff;
+}
+QGroupBox::title {
+    subcontrol-origin: margin;
+    left: 12px;
+    padding: 0 4px;
+    color: #3474e0;
+}
+
+/* ---------- 按钮：圆角 + 悬停变色 ---------- */
+QPushButton {
+    border: none;
+    border-radius: 6px;
+    padding: 6px 16px;
+    background: #3474e0;
+    color: white;
+    font-size: 13px;
+}
+QPushButton:hover {
+    background: #5b8ff0;
+}
+QPushButton:pressed {
+    background: #2456b0;
+}
+QPushButton:disabled {
+    background: #b9c4d4;
+    color: #eef1f6;
+}
+
+/* ---------- 日志区：深色终端风格 ---------- */
+QPlainTextEdit {
+    background: #1e1e1e;
+    color: #d4d4d4;
+    border: 1px solid #333;
+    border-radius: 6px;
+    font-family: "Consolas", "DejaVu Sans Mono", monospace;
+    font-size: 12px;
+    padding: 4px;
+}
+
+/* ---------- 进度条：圆角渐变 ---------- */
+QProgressBar {
+    border: 1px solid #c3cddb;
+    border-radius: 6px;
+    background: #eef1f6;
+    text-align: center;
+    color: #333;
+    min-height: 18px;
+    font-size: 11px;
+}
+QProgressBar::chunk {
+    border-radius: 5px;
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+                                stop:0 #3474e0, stop:1 #6ec1ff);
+}
+
+/* ---------- 拖拽接收区：默认虚线边框 ---------- */
+QLabel#dropArea {
+    border: 2px dashed #9aa4b2;
+    border-radius: 8px;
+    color: #6b7684;
+    background: #f7f9fc;
+    font-size: 14px;
+}
+/* 拖拽悬停高亮：由代码 setProperty("dragOver", true) 触发 */
+QLabel#dropArea[dragOver="true"] {
+    border: 2px solid #3474e0;
+    background: #e8f0fe;
+    color: #3474e0;
+    font-weight: bold;
+}
+
+/* ---------- 输入控件 ---------- */
+QLineEdit, QSpinBox {
+    border: 1px solid #c3cddb;
+    border-radius: 5px;
+    padding: 5px 8px;
+    background: white;
+}
+QLineEdit:focus, QSpinBox:focus {
+    border-color: #3474e0;
+}
+
+/* ---------- 状态栏 ---------- */
+QStatusBar {
+    background: #eaeef5;
+    color: #556;
+    border-top: 1px solid #d7dde8;
+}
